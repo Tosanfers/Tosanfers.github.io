@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-   "build": "astro build && pagefind --site dist --output-path dist/pagefind",
+    "build": "astro build && pagefind --site dist --output-path dist/pagefind",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -17,6 +17,8 @@
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.4",
     "@astrojs/svelte": "^9.0.1",
+    "@fontsource-variable/jetbrains-mono": "^5.3.0",
+    "@fontsource/outfit": "^5.3.0",
     "@iconify-json/fa6-brands": "^1.2.6",
     "@iconify-json/fa6-regular": "^1.2.4",
     "@iconify-json/fa6-solid": "^1.2.4",
