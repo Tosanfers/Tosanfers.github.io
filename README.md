@@ -37,6 +37,19 @@ After changing the plugin, restart the dev server. Run its regression checks
 with `node --test --test-isolation=none tests/shirone-project-images.test.mjs`
 (Node 22.8+).
 
+## GitHub Pages deployment
+
+In the GitHub repository, open **Settings → Pages → Build and deployment** and
+set **Source** to **GitHub Actions**. The workflow in
+`.github/workflows/deploy.yml` builds Astro rather than Jekyll, using Node 24
+and the pnpm version declared in `package.json`. It runs Astro checks followed
+by the full build script (including Pagefind), then publishes `dist/`.
+
+Push to `main` to trigger deployment, or run **Deploy Astro to GitHub Pages**
+manually from the Actions tab. For this repository, the site URL is
+`https://tosanfers.github.io/` and `base` is `/` in
+`shirones/config/siteConfig.ts`.
+
 ## Updating the theme
 
 ```bash
