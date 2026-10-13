@@ -1,0 +1,25 @@
+---
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { url } from "@utils/url-utils";
+import LibrarySection from "../components/organisms/library/LibrarySection.svelte";
+import { libraryMeta } from "../data/books";
+import {
+	resolveBooks,
+	resolveLibraryFolders,
+	resolveLibraryStats,
+} from "../utils/library";
+
+const resolvedBooks = resolveBooks();
+const books = resolvedBooks.map((book) => ({
+	...book,
+	coverUrl: book.coverUrl ? url(book.coverUrl) : undefined,
+	fileUrl: url(book.fileUrl),
+	detailUrl: url(book.detailUrl),
+}));
+const stats = resolveLibraryStats(resolvedBooks);
+const folders = resolveLibraryFolders(resolvedBooks);
+---
+
+<MainGridLayout title={libraryMeta.title} description={libraryMeta.description}>
+	<LibrarySection {books} {folders} {stats} copy={libraryMeta} client:visible />
+</MainGridLayout>

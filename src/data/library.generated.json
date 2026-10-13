@@ -1,0 +1,367 @@
+{
+	"version": 1,
+	"repository": "Tosanfers/Tosanfers.github.io",
+	"tag": "library-v1",
+	"books": [
+		{
+			"file": "/books/轻小说epub/2026-10-09/无职转生 续写录.epub",
+			"assetName": "book-212a278671.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-212a278671.epub",
+			"fileSize": 419482,
+			"added": "2026-10-09",
+			"sha256": "0a7838354e05538f498db978d9fdd1e3a6a4b3e26f0bc47aee67adb3234c8cd3"
+		},
+		{
+			"file": "/books/轻小说epub/[곧게뻗은주먹]【本篇完结】成了会自爆的实验体.txt",
+			"assetName": "book-40920117f1.txt",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-40920117f1.txt",
+			"fileSize": 3435973,
+			"added": "2026-10-04",
+			"sha256": "7e4c8b6e83e71dd4b4c460344d3870f1b2bd3620d88754137fd55864d11e444d"
+		},
+		{
+			"file": "/books/第一性原理：21堂科学通识课 (【英】马库斯·乔恩) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+			"assetName": "21-z-library-sk-1lib-sk-z-lib-sk-c7c24b2c32.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/21-z-library-sk-1lib-sk-z-lib-sk-c7c24b2c32.epub",
+			"fileSize": 3455824,
+			"added": "2026-10-04",
+			"sha256": "55008d55ea59760ef4c034f0dd5714bbd74d973495d4e8007facab6af1b346b5"
+		},
+		{
+			"file": "/books/轻小说epub/[여실정행]【完结】少女想要被杀.epub",
+			"assetName": "book-f0d153f486.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-f0d153f486.epub",
+			"fileSize": 3480864,
+			"added": "2026-10-03",
+			"sha256": "3fefd1cbb580dc398b6f92c3ab685faa303b8bb8961056a3a21c33e62b987089"
+		},
+		{
+			"file": "/books/轻小说epub/zh.Ysgy.モブ少女がラスボス魔女を幸せにするまで２(富士見ファンタジア文庫)-鴉ぴえろ.epub",
+			"assetName": "zh-ysgy-2-04334e4c1b.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/zh-ysgy-2-04334e4c1b.epub",
+			"fileSize": 10981164,
+			"added": "2026-10-03",
+			"sha256": "25d7c3acb725352bb4d63ccbfd18cb0fa11aa5063f4d9e9b704b9f1e37a2b00b"
+		},
+		{
+			"file": "/books/轻小说epub/战败圣女今天也在驯服邪神的路上.epub",
+			"assetName": "book-54cb8cd028.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-54cb8cd028.epub",
+			"fileSize": 11979057,
+			"added": "2026-10-03",
+			"sha256": "1faf4738f9d4fdac1224eac732965b3799307cdaed7b5731995cd3449c703776"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～ 1.epub",
+			"assetName": "1-626c682184.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/1-626c682184.epub",
+			"fileSize": 7049458,
+			"added": "2026-10-03",
+			"sha256": "51e856142f6f05a473cd14e29a072386d1626a41e980ffedd57bb076e1d193d7"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事～ 完全收录版.epub",
+			"assetName": "book-a3b4175b86.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-a3b4175b86.epub",
+			"fileSize": 53404622,
+			"added": "2026-10-03",
+			"sha256": "790094e801f121df68bab04602480ac3ae0fd4f9b2c1e61595ef752e91db7531"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.01.epub",
+			"assetName": "01-05cb3f675b.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/01-05cb3f675b.epub",
+			"fileSize": 7049458,
+			"added": "2026-10-03",
+			"sha256": "51e856142f6f05a473cd14e29a072386d1626a41e980ffedd57bb076e1d193d7"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.02.epub",
+			"assetName": "02-7629fbb909.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/02-7629fbb909.epub",
+			"fileSize": 7245924,
+			"added": "2026-10-03",
+			"sha256": "cb7f374fb070b8e6c3b06739ccb30d2784aae3303fa583b9940f5d0923b0cb84"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.03.epub",
+			"assetName": "03-52f5113444.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/03-52f5113444.epub",
+			"fileSize": 4202555,
+			"added": "2026-10-03",
+			"sha256": "e17c67555dabf8ca0ea5e111506ee99dba2451251483b895fb994ef306b16aa6"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.04.epub",
+			"assetName": "04-616986a7b0.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/04-616986a7b0.epub",
+			"fileSize": 5703123,
+			"added": "2026-10-03",
+			"sha256": "d670305b1831d40fba74bdbe4195ec4fe26723c088a04e2d951174c562b380f6"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.05.epub",
+			"assetName": "05-ff0e53ccdc.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/05-ff0e53ccdc.epub",
+			"fileSize": 5902723,
+			"added": "2026-10-03",
+			"sha256": "5f1d34177a658ebaeb62d2198ebb11da2edc71d0347dbf746fde16727faef6e6"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.06.epub",
+			"assetName": "06-fb7cf393e4.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/06-fb7cf393e4.epub",
+			"fileSize": 4350564,
+			"added": "2026-10-03",
+			"sha256": "4c8027f41f0eb708504b0bc4d9cfac3b8a7dbe561eec41cd62c93749728e811f"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.07.epub",
+			"assetName": "07-d6fdf0edb7.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/07-d6fdf0edb7.epub",
+			"fileSize": 5596523,
+			"added": "2026-10-03",
+			"sha256": "c95c46fc21fe443e509a6a5491a995f07e14ad867d4a7ce89be6844966bbf2d6"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.08.epub",
+			"assetName": "08-75d2d7257f.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/08-75d2d7257f.epub",
+			"fileSize": 5098194,
+			"added": "2026-10-03",
+			"sha256": "d19d3584ac965d7f273e7d136c54d0731f1d67a5152a297c85469e4b129117b1"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.09.epub",
+			"assetName": "09-226ba00257.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/09-226ba00257.epub",
+			"fileSize": 4850256,
+			"added": "2026-10-03",
+			"sha256": "1c81bb574a6b1795cecc2694bac4183dd67693021b60786ab440f3e163ee3b37"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.10.epub",
+			"assetName": "10-305f771356.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/10-305f771356.epub",
+			"fileSize": 4530230,
+			"added": "2026-10-03",
+			"sha256": "bda4ac327a27b91bf3850e7fd6f7de376d075a11dd798c21b84304b656110c51"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.11.epub",
+			"assetName": "11-7a1bc6ae12.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/11-7a1bc6ae12.epub",
+			"fileSize": 4841115,
+			"added": "2026-10-03",
+			"sha256": "89cdc74498ebe998335b51e27e89e9ea6b0901553b5753f9a4085114ef607f3e"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.12.epub",
+			"assetName": "12-87f4f31b10.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/12-87f4f31b10.epub",
+			"fileSize": 5180535,
+			"added": "2026-10-03",
+			"sha256": "2fc1db1b51f2ddfa081896a2f81e485b3bc8c7c5e48a0d452ba98537a0d98083"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.13.epub",
+			"assetName": "13-5e0713f226.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/13-5e0713f226.epub",
+			"fileSize": 4850310,
+			"added": "2026-10-03",
+			"sha256": "5bd5a6354cbd12fac07e03e703f5a29d125c5f709a7805db980362138f95bcd0"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.14.epub",
+			"assetName": "14-5c260c3bc7.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/14-5c260c3bc7.epub",
+			"fileSize": 4645656,
+			"added": "2026-10-03",
+			"sha256": "3af518216ef944d063da7c864ed1e947cb45c454051ccf5714741e9ec016d621"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.15.epub",
+			"assetName": "15-3920e1bd5f.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/15-3920e1bd5f.epub",
+			"fileSize": 10722820,
+			"added": "2026-10-03",
+			"sha256": "d09c42d3f6bf5cdcbd752e1ffa8c1483a5a4b8afbad3371dbfc9bef4fb0f08b4"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.16.epub",
+			"assetName": "16-d2edd8ef32.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/16-d2edd8ef32.epub",
+			"fileSize": 4620912,
+			"added": "2026-10-03",
+			"sha256": "181c7aa9476b62e9f5941cf6bf259754febda1e773439f7a660c6562b07e35f1"
+		},
+		{
+			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～.17.epub",
+			"assetName": "17-e6d3ebc571.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/17-e6d3ebc571.epub",
+			"fileSize": 4999854,
+			"added": "2026-10-03",
+			"sha256": "0db0361294e0a9e0bdcfbfc8bfaac60ab66f7de655a13e77a0ce22db07d2b942"
+		},
+		{
+			"file": "/books/轻小说epub/無職転生 ～異世界行ったら本気だす～.epub",
+			"assetName": "book-772db8e5c3.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-772db8e5c3.epub",
+			"fileSize": 53423146,
+			"added": "2026-10-03",
+			"sha256": "3947b50d70c7d4d15f9bf6a2ca8841bc5cd20e5395b39496ae1230396ab184a9"
+		},
+		{
+			"file": "/books/轻小说epub/神弃少女，开局绞刑，终成魔女.epub",
+			"assetName": "book-f0b75c5cc1.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-f0b75c5cc1.epub",
+			"fileSize": 1021492,
+			"added": "2026-10-03",
+			"sha256": "7595f1e899257e15adbbfb6f519ecf2042c6fbb414a3370cf786a655d95fb983"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.01.epub",
+			"assetName": "01-0a146a3c6f.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/01-0a146a3c6f.epub",
+			"fileSize": 3690833,
+			"added": "2026-10-03",
+			"sha256": "0ccf4d325266f2c3a42ad5ddaa1a4bc6581e1aea87e085351a01adbdaf0a8c7a"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.02.epub",
+			"assetName": "02-c39aadc745.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/02-c39aadc745.epub",
+			"fileSize": 3448022,
+			"added": "2026-10-03",
+			"sha256": "d7ad335d77e0a4832617924e54e29341a0e9e2602c447c361f26dc5b74c5731a"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.03.epub",
+			"assetName": "03-f95ab3287e.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/03-f95ab3287e.epub",
+			"fileSize": 3387951,
+			"added": "2026-10-03",
+			"sha256": "cc31dec9a51141090a4c39428a6aa77bda8ae5b7bae22c9785d1d3f37f6ee13a"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.04.epub",
+			"assetName": "04-5b45fb3637.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/04-5b45fb3637.epub",
+			"fileSize": 3154879,
+			"added": "2026-10-03",
+			"sha256": "85aaab0cfaadb5ebd48a55cc5db0acb7cbbd6a99aca4fcbf74802fd945310c7e"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.05.epub",
+			"assetName": "05-ee713ca06d.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/05-ee713ca06d.epub",
+			"fileSize": 3020838,
+			"added": "2026-10-03",
+			"sha256": "4861a4540076ba6abd056fd1071b31651706c9a3b747009af1d9fa4f71c1c0d7"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.06.epub",
+			"assetName": "06-2f73ddd9fc.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/06-2f73ddd9fc.epub",
+			"fileSize": 3121891,
+			"added": "2026-10-03",
+			"sha256": "f31a562cc948cd283b1c57e3578eac81d2f1b84b8e08abdbdbbda112a0b69f91"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.07.epub",
+			"assetName": "07-60adeb2ba7.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/07-60adeb2ba7.epub",
+			"fileSize": 3466191,
+			"added": "2026-10-03",
+			"sha256": "1980c01a3f81f58efcb23530e00a854831d36bfef7de94609ba08715e5d824db"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.08.epub",
+			"assetName": "08-e53deac8a9.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/08-e53deac8a9.epub",
+			"fileSize": 6408285,
+			"added": "2026-10-03",
+			"sha256": "b070719a232b087b88f2738ddb5b0b662d2251ba1d4eb2e0d77df5921716e510"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.09.epub",
+			"assetName": "09-a18cc61f23.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/09-a18cc61f23.epub",
+			"fileSize": 10968404,
+			"added": "2026-10-03",
+			"sha256": "d1bd3dfde0453a5349ad62c3fd1a689d68d213a8636abc8fd2254755ae1ae152"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.10.epub",
+			"assetName": "10-81d5691ace.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/10-81d5691ace.epub",
+			"fileSize": 6454494,
+			"added": "2026-10-03",
+			"sha256": "442444d8070300e913fdbf26d69fcc394ae09ad35434f4d67b8253b3a19caf93"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.11.epub",
+			"assetName": "11-a188008e56.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/11-a188008e56.epub",
+			"fileSize": 5383914,
+			"added": "2026-10-03",
+			"sha256": "6515c6d2b5211fc3d4b1e928bc33a712b9c2f49b187b37c4ddda3c01934aa7ec"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.12.epub",
+			"assetName": "12-d54e79b0bf.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/12-d54e79b0bf.epub",
+			"fileSize": 25593217,
+			"added": "2026-10-03",
+			"sha256": "15a0db94ec6d5b5cc1068555529152724ef2c7c610a1f303b44860995912b8c6"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.13.epub",
+			"assetName": "13-6589b52d90.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/13-6589b52d90.epub",
+			"fileSize": 15331177,
+			"added": "2026-10-03",
+			"sha256": "d467b7034bf73ab0d6751db640026aa821adc70cca92d4cffd976c96c9d88927"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.14.epub",
+			"assetName": "14-afaaa90c27.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/14-afaaa90c27.epub",
+			"fileSize": 19221312,
+			"added": "2026-10-03",
+			"sha256": "9a3612c71f801993141d51d8722e459441995a90625572dd0e8bc90f459d35b9"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.15.epub",
+			"assetName": "15-6bca31bfb5.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/15-6bca31bfb5.epub",
+			"fileSize": 29084159,
+			"added": "2026-10-03",
+			"sha256": "04c646344ab29dfb99cb6853d2bc1af61f48ba39c6cf536eface09f15b1cbad6"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/转生成蜘蛛又怎样！.第16卷.epub",
+			"assetName": "16-d4e7548950.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/16-d4e7548950.epub",
+			"fileSize": 5669838,
+			"added": "2026-10-03",
+			"sha256": "7ccdd7ada440f1dacc13b7da9a956d2312c491e7bce954a02fff4194db0a550e"
+		},
+		{
+			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/转生成蜘蛛又怎样！EX.epub",
+			"assetName": "ex-9751795240.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/ex-9751795240.epub",
+			"fileSize": 49423336,
+			"added": "2026-10-03",
+			"sha256": "92c7899d9b572243306c0976c6da74fdc49b8bad7decd74c76ee4b8992756db2"
+		},
+		{
+			"file": "/books/轻小说epub/救命！要被魔王小姐堕落成女仆了_上真丝wi.epub",
+			"assetName": "wi-724263daaa.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/wi-724263daaa.epub",
+			"fileSize": 1150477,
+			"added": "2026-08-05",
+			"sha256": "ea954bc126f2dbc08499a5399bf291b21a2bed116d0ba3e01edf8a05bc45e204"
+		}
+	]
+}

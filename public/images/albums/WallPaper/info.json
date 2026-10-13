@@ -1,0 +1,10 @@
+{
+  "title": "Some wallpapers",
+  "description": "A collection of wallpapers in webp format.",
+  "date": "2026-10-13",
+  "location": "Local archive",
+  "tags": ["local", "webp", "wallpaper"],
+  "layout": "masonry",
+  "columns": 3,
+  "hidden": false
+}

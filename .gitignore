@@ -58,6 +58,12 @@ public/assets/moments/thumbnails/*
 .zcode/
 .codex-*.log
 research/
+.library-source/
+.library-release/
+
+# library binaries are distributed through GitHub Releases
+public/books/**/*.epub
+public/books/**/*.txt
 
 # playwright
 .playwright-cli/

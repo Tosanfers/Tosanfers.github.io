@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && pagefind --site dist --output-path dist/pagefind",
+    "library:finalize": "node tools/finalize-library-release.mjs",
+    "library:prepare": "node tools/prepare-library-release.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

@@ -104,6 +104,11 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		icon: "material-symbols:photo-library-outline-rounded",
 		pageKey: "albums",
 	},
+	Library: {
+		name: "小说书库",
+		url: "/library/",
+		icon: "material-symbols:local-library-outline-rounded",
+	},
 	Categories: {
 		name: i18n(I18nKey.categories),
 		url: "/categories/",
@@ -138,32 +143,34 @@ export const LinkPresets: Record<string, NavBarLink> = {
 };
 
 const defaultNavBarConfig: NavBarConfig = {
-	links: [
-		LinkPresets.Home,
-		LinkPresets.Archive,
-		LinkPresets.Friends,
-		LinkPresets.Moments,
-		LinkPresets.Anime,
-		LinkPresets.Compass,
-		LinkPresets.Albums,
-		{
-			name: i18n(I18nKey.more),
-			icon: "material-symbols:apps-rounded",
-			children: [
-				LinkPresets.Timeline,
-				LinkPresets.Projects,
-				LinkPresets.Devices,
-				LinkPresets.Games,
-				LinkPresets.Skills,
-				// 分类/标签入口不进导航菜单（避免菜单项过多），预设已登记指向独立页面，
-				// 需要时取消注释即可
-				// LinkPresets.Categories,
-				// LinkPresets.Tags,
-				LinkPresets.About,
-				LinkPresets.GitHub,
-			],
-		},
-	],
+  links: [
+    LinkPresets.Home,
+    LinkPresets.Archive,
+    LinkPresets.Moments,
+    LinkPresets.Projects,
+
+    LinkPresets.Anime,
+    LinkPresets.Compass,
+    LinkPresets.Albums,
+    LinkPresets.Library,
+    {
+      name: i18n(I18nKey.more),
+      icon: "material-symbols:apps-rounded",
+      children: [
+        LinkPresets.Timeline,
+        LinkPresets.Tags,
+        LinkPresets.Devices,
+        LinkPresets.Games,
+        LinkPresets.Skills,
+        // 分类/标签入口不进导航菜单（避免菜单项过多），预设已登记指向独立页面，
+        // 需要时取消注释即可
+        LinkPresets.Categories,
+        LinkPresets.Friends,
+        LinkPresets.About,
+        LinkPresets.GitHub,
+      ],
+    },
+  ],
 };
 
 import { resolveI18nText } from "@/utils/i18n-utils.ts";
