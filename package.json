@@ -27,6 +27,7 @@
     "@iconify-json/material-symbols": "^1.2.93",
     "@iconify-json/simple-icons": "^1.2.93",
     "astro": "^7.3.8",
+    "astro-icon": "^1.2.0",
     "sharp": "^0.35.4",
     "shirones": "^0.1.5",
     "svelte": "^5.57.1",
