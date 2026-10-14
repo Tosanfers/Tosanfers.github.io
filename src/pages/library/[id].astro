@@ -27,24 +27,28 @@ const folderBreadcrumbs = book.folderSegments.map((name, index) => {
 		href: url(`/library/?folder=${encodeURIComponent(folderPath)}`),
 	};
 });
+
+const detailRow = (label: string, value: string): [string, string] => [label, value];
 const detailRows = [
-	[libraryMeta.author, book.author],
-	...(book.source === "network" ? [[libraryMeta.source, libraryMeta.networkSource]] : []),
-	...(book.series ? [[libraryMeta.series, book.series]] : []),
+	detailRow(libraryMeta.author, book.author),
+	...(book.source === "network"
+		? [detailRow(libraryMeta.source, libraryMeta.networkSource)]
+		: []),
+	...(book.series ? [detailRow(libraryMeta.series, book.series)] : []),
 	...(book.volume === undefined
 		? []
 		: [
-				[
+				detailRow(
 					libraryMeta.volume,
 					libraryMeta.volumePattern.replace("{volume}", String(book.volume)),
-				],
+				),
 			]),
-	[libraryMeta.category, book.category],
-	[libraryMeta.format, book.format],
-	...(book.fileSizeLabel ? [[libraryMeta.fileSize, book.fileSizeLabel]] : []),
-	[libraryMeta.readingStatus, libraryMeta.readingStatusLabels[book.readingStatus]],
-	[libraryMeta.added, book.added],
-	[libraryMeta.rating, book.rating === undefined ? "—" : `${book.rating}/5`],
+	detailRow(libraryMeta.category, book.category),
+	detailRow(libraryMeta.format, book.format),
+	...(book.fileSizeLabel ? [detailRow(libraryMeta.fileSize, book.fileSizeLabel)] : []),
+	detailRow(libraryMeta.readingStatus, libraryMeta.readingStatusLabels[book.readingStatus]),
+	detailRow(libraryMeta.added, book.added),
+	detailRow(libraryMeta.rating, book.rating === undefined ? "—" : `${book.rating}/5`),
 ] satisfies Array<[string, string]>;
 ---
 
