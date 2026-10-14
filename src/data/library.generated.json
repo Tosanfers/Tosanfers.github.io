@@ -4,6 +4,62 @@
 	"tag": "library-v1",
 	"books": [
 		{
+			"file": "/books/西幻/《来自深渊的我今天也要拯救人类》（完结）作者：一簇西语.txt",
+			"assetName": "book-32792a3081.txt",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-32792a3081.txt",
+			"fileSize": 9965898,
+			"added": "2026-10-13",
+			"sha256": "ef922b445e69ef63a49ae064466fc274d20bd3e78ef1ef98eeb7add22d55cb16"
+		},
+		{
+			"file": "/books/奇幻/苍空战记￥xinclaer￥【完美校对】.txt",
+			"assetName": "xinclaer-acdee96afb.txt",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/xinclaer-acdee96afb.txt",
+			"fileSize": 8164109,
+			"added": "2026-10-13",
+			"sha256": "2e4f6c8dc1c42590d603bc579d3a6a78e91bafc666fcf638e8f5b1ee19d610dc"
+		},
+		{
+			"file": "/books/网文/凡人修仙传 (凡人修仙传.EPUB) (z-library.sk, 1lib.sk, z-lib.sk).txt",
+			"assetName": "epub-z-library-sk-1lib-sk-z-lib-sk-e95f3d8d8d.txt",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/epub-z-library-sk-1lib-sk-z-lib-sk-e95f3d8d8d.txt",
+			"fileSize": 22513508,
+			"added": "2026-10-13",
+			"sha256": "f85896898ba84636f1a3f63309f0d3b8375693e540fffadb289822934828f0cb"
+		},
+		{
+			"file": "/books/奇幻/分手后我被前女友灌下魔女秘药_作者：离瞳.txt",
+			"assetName": "book-5cec84be23.txt",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-5cec84be23.txt",
+			"fileSize": 3544835,
+			"added": "2026-10-13",
+			"sha256": "801e7976a22151073731b82754eb2780e163772e227aed9b801d1af58a199a57"
+		},
+		{
+			"file": "/books/网文/诡秘之主 (爱潜水的乌贼) (z-library.sk, 1lib.sk, z-lib.sk).epub",
+			"assetName": "z-library-sk-1lib-sk-z-lib-sk-b550a0e70b.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/z-library-sk-1lib-sk-z-lib-sk-b550a0e70b.epub",
+			"fileSize": 28013276,
+			"added": "2026-10-13",
+			"sha256": "cc1ce5ea5beaeedd07d7a17bbbc32a3ef431e642076acf2319e5ce2773264208"
+		},
+		{
+			"file": "/books/西幻/血姬与骑士_作者：漢唐歸來（全本）.txt",
+			"assetName": "book-81e23b4572.txt",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-81e23b4572.txt",
+			"fileSize": 11626755,
+			"added": "2026-10-13",
+			"sha256": "9c0392a64955bca1b43424a6f28c228f4e429dc41bad5a7cdce5de6ba994ff24"
+		},
+		{
+			"file": "/books/西幻/转生成精灵的我_又名天使半身_.txt",
+			"assetName": "book-248b0b7aeb.txt",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-248b0b7aeb.txt",
+			"fileSize": 4855811,
+			"added": "2026-10-13",
+			"sha256": "a842338cc5fabc0da7b87cf4f63eb5b0ced4d59e1938494f1539364d4bcc1a5e"
+		},
+		{
 			"file": "/books/轻小说epub/2026-10-09/无职转生 续写录.epub",
 			"assetName": "book-212a278671.epub",
 			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-212a278671.epub",
@@ -36,20 +92,12 @@
 			"sha256": "3fefd1cbb580dc398b6f92c3ab685faa303b8bb8961056a3a21c33e62b987089"
 		},
 		{
-			"file": "/books/轻小说epub/zh.Ysgy.モブ少女がラスボス魔女を幸せにするまで２(富士見ファンタジア文庫)-鴉ぴえろ.epub",
-			"assetName": "zh-ysgy-2-04334e4c1b.epub",
-			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/zh-ysgy-2-04334e4c1b.epub",
-			"fileSize": 10981164,
+			"file": "/books/轻小说epub/神弃少女，开局绞刑，终成魔女.epub",
+			"assetName": "book-f0b75c5cc1.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-f0b75c5cc1.epub",
+			"fileSize": 1021492,
 			"added": "2026-10-03",
-			"sha256": "25d7c3acb725352bb4d63ccbfd18cb0fa11aa5063f4d9e9b704b9f1e37a2b00b"
-		},
-		{
-			"file": "/books/轻小说epub/战败圣女今天也在驯服邪神的路上.epub",
-			"assetName": "book-54cb8cd028.epub",
-			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-54cb8cd028.epub",
-			"fileSize": 11979057,
-			"added": "2026-10-03",
-			"sha256": "1faf4738f9d4fdac1224eac732965b3799307cdaed7b5731995cd3449c703776"
+			"sha256": "7595f1e899257e15adbbfb6f519ecf2042c6fbb414a3370cf786a655d95fb983"
 		},
 		{
 			"file": "/books/轻小说epub/无职转生 ～到了异世界就拿出真本事/无职转生 ～到了异世界就拿出真本事～ 1.epub",
@@ -212,12 +260,12 @@
 			"sha256": "3947b50d70c7d4d15f9bf6a2ca8841bc5cd20e5395b39496ae1230396ab184a9"
 		},
 		{
-			"file": "/books/轻小说epub/神弃少女，开局绞刑，终成魔女.epub",
-			"assetName": "book-f0b75c5cc1.epub",
-			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-f0b75c5cc1.epub",
-			"fileSize": 1021492,
+			"file": "/books/轻小说epub/战败圣女今天也在驯服邪神的路上.epub",
+			"assetName": "book-54cb8cd028.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/book-54cb8cd028.epub",
+			"fileSize": 11979057,
 			"added": "2026-10-03",
-			"sha256": "7595f1e899257e15adbbfb6f519ecf2042c6fbb414a3370cf786a655d95fb983"
+			"sha256": "1faf4738f9d4fdac1224eac732965b3799307cdaed7b5731995cd3449c703776"
 		},
 		{
 			"file": "/books/轻小说epub/转生成蜘蛛又怎样！/[马场翁].转生成蜘蛛又怎样！.01.epub",
@@ -354,6 +402,14 @@
 			"fileSize": 49423336,
 			"added": "2026-10-03",
 			"sha256": "92c7899d9b572243306c0976c6da74fdc49b8bad7decd74c76ee4b8992756db2"
+		},
+		{
+			"file": "/books/轻小说epub/zh.Ysgy.モブ少女がラスボス魔女を幸せにするまで２(富士見ファンタジア文庫)-鴉ぴえろ.epub",
+			"assetName": "zh-ysgy-2-04334e4c1b.epub",
+			"downloadUrl": "https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/zh-ysgy-2-04334e4c1b.epub",
+			"fileSize": 10981164,
+			"added": "2026-10-03",
+			"sha256": "25d7c3acb725352bb4d63ccbfd18cb0fa11aa5063f4d9e9b704b9f1e37a2b00b"
 		},
 		{
 			"file": "/books/轻小说epub/救命！要被魔王小姐堕落成女仆了_上真丝wi.epub",

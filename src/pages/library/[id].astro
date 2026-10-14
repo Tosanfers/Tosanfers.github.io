@@ -29,13 +29,23 @@ const folderBreadcrumbs = book.folderSegments.map((name, index) => {
 });
 const detailRows = [
 	[libraryMeta.author, book.author],
+	...(book.source === "network" ? [[libraryMeta.source, libraryMeta.networkSource]] : []),
+	...(book.series ? [[libraryMeta.series, book.series]] : []),
+	...(book.volume === undefined
+		? []
+		: [
+				[
+					libraryMeta.volume,
+					libraryMeta.volumePattern.replace("{volume}", String(book.volume)),
+				],
+			]),
 	[libraryMeta.category, book.category],
 	[libraryMeta.format, book.format],
-	[libraryMeta.fileSize, book.fileSizeLabel],
+	...(book.fileSizeLabel ? [[libraryMeta.fileSize, book.fileSizeLabel]] : []),
 	[libraryMeta.readingStatus, libraryMeta.readingStatusLabels[book.readingStatus]],
 	[libraryMeta.added, book.added],
 	[libraryMeta.rating, book.rating === undefined ? "—" : `${book.rating}/5`],
-];
+] satisfies Array<[string, string]>;
 ---
 
 <MainGridLayout

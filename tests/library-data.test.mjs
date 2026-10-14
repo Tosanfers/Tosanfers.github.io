@@ -5,10 +5,10 @@ import test from "node:test";
 import { createJiti } from "jiti";
 
 const jiti = createJiti(import.meta.url, { interopDefault: true });
-const { resolveBooks, resolveLibraryFolders, resolveLibraryStats } = await jiti.import(
-	"../src/utils/library.ts",
-);
-const { bookOverrides } = await jiti.import("../src/data/books.ts");
+const { resolveBooks, resolveLibraryFolders, resolveLibraryStats, resolveNetworkBooks } =
+	await jiti.import("../src/utils/library.ts");
+const { groupBooksBySeries } = await jiti.import("../src/utils/library-series.ts");
+const { bookOverrides, networkBooks } = await jiti.import("../src/data/books.ts");
 
 const publicRoot = path.resolve("public");
 const booksRoot = path.join(publicRoot, "books");
@@ -26,47 +26,51 @@ function findBookFiles(directory) {
 
 test("resolves every TXT and EPUB from local files or the release manifest", () => {
 	const books = resolveBooks();
+	const localBooks = books.filter((book) => book.source === "local");
 	const localFiles = findBookFiles(booksRoot);
 	const hiddenFiles = new Set(
 		bookOverrides
 			.filter((definition) => definition.hidden)
 			.map((definition) => decodeURIComponent(definition.file)),
 	);
-	const expectedCount =
-		localFiles.length > 0
-			? localFiles.filter(
-					(file) =>
-						!hiddenFiles.has(
-							`/${path.relative(publicRoot, file).replaceAll(path.sep, "/")}`,
-						),
-				).length
-			: releaseManifest.books.filter((entry) => !hiddenFiles.has(entry.file)).length;
+	const expectedFiles = new Set([
+		...releaseManifest.books.map((entry) => entry.file),
+		...localFiles.map(
+			(file) => `/${path.relative(publicRoot, file).replaceAll(path.sep, "/")}`,
+		),
+	]);
+	for (const hiddenFile of hiddenFiles) expectedFiles.delete(hiddenFile);
+	const expectedCount = expectedFiles.size;
 
-	assert.equal(books.length, expectedCount);
+	assert.equal(localBooks.length, expectedCount);
+	assert.equal(
+		books.length,
+		expectedCount + networkBooks.filter((definition) => !definition.hidden).length,
+	);
 	assert.equal(new Set(books.map((book) => book.id)).size, books.length);
 	assert.equal(new Set(books.map((book) => book.fileUrl)).size, books.length);
 	assert.ok(books.every((book) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(book.id)));
 	assert.ok(books.every((book) => book.detailUrl === `/library/${book.id}/`));
-	assert.ok(books.every((book) => book.fileSize > 0));
+	assert.ok(localBooks.every((book) => book.fileSize > 0));
+	assert.ok(books.every((book) => book.source === "local" || book.source === "network"));
 	assert.ok(books.every((book) => typeof book.personalReview === "string"));
 	assert.ok(
 		books.every(
 			(book) => book.folderPath === book.folderSegments.join("/"),
 		),
 	);
-	if (localFiles.length > 0) {
-		assert.ok(
-			books.every((book) => {
+	assert.ok(
+		localBooks.every((book) => {
+			if (book.fileUrl.startsWith("/books/")) {
 				const file = path.join(
 					publicRoot,
 					...decodeURIComponent(book.fileUrl).slice(1).split("/"),
 				);
 				return fs.existsSync(file);
-			}),
-		);
-	} else {
-		assert.ok(books.every((book) => book.fileUrl.startsWith("https://github.com/")));
-	}
+			}
+			return book.fileUrl.startsWith("https://github.com/");
+		}),
+	);
 });
 
 test("builds nested folder counts from visible books", () => {
@@ -88,8 +92,33 @@ test("builds nested folder counts from visible books", () => {
 	assert.ok(folders.some((folder) => folder.parentPath));
 });
 
+test("groups directory-based series and sorts numbered volumes", () => {
+	const groups = groupBooksBySeries(resolveBooks());
+	const standalone = groups.find((group) => !group.series);
+	const mushoku = groups.find(
+		(group) => group.series === "无职转生 ～到了异世界就拿出真本事",
+	);
+	const spider = groups.find((group) => group.series === "转生成蜘蛛又怎样！");
+
+	assert.equal(
+		standalone?.books.length,
+		resolveBooks().filter((book) => !book.series).length,
+	);
+	assert.equal(groups.at(-1), standalone);
+	assert.equal(mushoku?.books.length, 18);
+	assert.deepEqual(
+		mushoku?.books.map((book) => book.volume),
+		[1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+	);
+	assert.equal(spider?.books.length, 17);
+	assert.deepEqual(
+		spider?.books.map((book) => book.volume),
+		[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, undefined],
+	);
+});
+
 test("release manifest covers every visible book with valid remote metadata", () => {
-	const books = resolveBooks();
+	const books = resolveBooks().filter((book) => book.source === "local");
 	const entries = releaseManifest.books;
 
 	assert.equal(releaseManifest.version, 1);
@@ -104,6 +133,62 @@ test("release manifest covers every visible book with valid remote metadata", ()
 				"https://github.com/Tosanfers/Tosanfers.github.io/releases/download/library-v1/",
 			),
 		),
+	);
+});
+
+test("resolves declared network books without fetching remote metadata", () => {
+	const definitions = [
+		{
+			url: "https://example.com/library/series-02.epub?download=1",
+			title: "网络系列第二卷",
+			series: "网络系列",
+			volume: 2,
+			added: "2026-10-13",
+			fileSize: 2048,
+		},
+		{
+			url: "https://example.com/download?id=book",
+			title: "无扩展名 TXT",
+			format: "TXT",
+			added: "2026-10-12",
+		},
+	];
+	const books = resolveNetworkBooks(definitions);
+
+	assert.equal(books.length, 2);
+	assert.equal(books[0].source, "network");
+	assert.equal(books[0].format, "EPUB");
+	assert.equal(books[0].series, "网络系列");
+	assert.equal(books[0].volume, 2);
+	assert.equal(books[0].fileSizeLabel, "2.0 KB");
+	assert.equal(books[1].format, "TXT");
+	assert.equal(books[1].fileSize, undefined);
+	assert.match(books[1].fileUrl, /^https:\/\/example\.com\//);
+	const combinedBooks = resolveBooks({ networkDefinitions: definitions });
+	assert.equal(combinedBooks.filter((book) => book.source === "network").length, 2);
+	assert.equal(combinedBooks.length, resolveBooks({ includeNetwork: false }).length + 2);
+
+	assert.throws(
+		() =>
+			resolveNetworkBooks([
+				{
+					url: "http://example.com/book.epub",
+					title: "不安全链接",
+					added: "2026-10-13",
+				},
+			]),
+		/HTTPS URL/,
+	);
+	assert.throws(
+		() =>
+			resolveNetworkBooks([
+				{
+					url: "https://example.com/download?id=book",
+					title: "缺少格式",
+					added: "2026-10-13",
+				},
+			]),
+		/format is required/,
 	);
 });
 

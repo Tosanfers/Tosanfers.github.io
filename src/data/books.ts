@@ -1,6 +1,7 @@
 export type BookFormat = "TXT" | "EPUB";
 export type BookStatus = "ongoing" | "completed" | "unknown";
 export type ReadingStatus = "unread" | "reading" | "finished";
+export type BookSource = "local" | "network";
 
 /** 手工资料覆盖项。file 是唯一必填字段，其余信息可由文件名和目录推断。 */
 export interface BookDefinition {
@@ -8,6 +9,8 @@ export interface BookDefinition {
 	id?: string;
 	title?: string;
 	author?: string;
+	series?: string | false;
+	volume?: number;
 	description?: string;
 	personalReview?: string;
 	cover?: string;
@@ -21,16 +24,41 @@ export interface BookDefinition {
 	hidden?: boolean;
 }
 
+/** 手工登记的网络书籍。url、title、added 必填，不会在构建时请求远程资源。 */
+export interface NetworkBookDefinition {
+	url: string;
+	title: string;
+	added: string;
+	id?: string;
+	author?: string;
+	series?: string;
+	volume?: number;
+	description?: string;
+	personalReview?: string;
+	cover?: string;
+	format?: BookFormat;
+	fileSize?: number;
+	category?: string;
+	tags?: string[];
+	status?: BookStatus;
+	readingStatus?: ReadingStatus;
+	rating?: number;
+	hidden?: boolean;
+}
+
 /** 页面实际消费的、经过文件扫描与校验的完整数据。 */
 export interface Book {
 	id: string;
 	title: string;
 	author: string;
+	series?: string;
+	volume?: number;
 	description: string;
 	personalReview: string;
 	coverUrl?: string;
 	fileUrl: string;
 	detailUrl: string;
+	source: BookSource;
 	folderPath: string;
 	folderSegments: string[];
 	format: BookFormat;
@@ -40,8 +68,8 @@ export interface Book {
 	readingStatus: ReadingStatus;
 	rating?: number;
 	added: string;
-	fileSize: number;
-	fileSizeLabel: string;
+	fileSize?: number;
+	fileSizeLabel?: string;
 }
 
 export interface LibraryStats {
@@ -88,9 +116,17 @@ export const libraryMeta = {
 	noCover: "暂无封面",
 	coverSuffix: "封面",
 	metadataLabel: "书籍信息",
+	source: "来源",
+	allSources: "全部来源",
+	localSource: "本地书库",
+	networkSource: "网络链接",
+	series: "系列",
+	standalone: "单本作品",
+	volume: "卷号",
+	volumePattern: "第 {volume} 卷",
 	personalReview: "本人评价",
 	emptyPersonalReview: "暂未填写评价。",
-	search: "搜索书名、作者、简介或标签",
+	search: "搜索书名、系列、作者、简介或标签",
 	clearSearch: "清除搜索",
 	category: "分类",
 	format: "格式",
@@ -129,6 +165,8 @@ export const libraryMeta = {
 	uncategorized: "未分类",
 	unknownAuthor: "未知作者",
 	localFileDescription: "本地 {format} 文件：{title}",
+	networkFileDescription: "网络 {format} 资源：{title}",
+	networkCategory: "网络书籍",
 } as const;
 
 export type LibraryCopy = typeof libraryMeta;
@@ -138,3 +176,9 @@ export type LibraryCopy = typeof libraryMeta;
  * 才在这里按公开文件路径添加覆盖项。
  */
 export const bookOverrides: readonly BookDefinition[] = [];
+
+/**
+ * 网络 TXT/EPUB 直链。只登记元数据，不会在构建时下载或探测链接。
+ * URL 路径没有 .txt/.epub 扩展名时必须填写 format。
+ */
+export const networkBooks: readonly NetworkBookDefinition[] = [];

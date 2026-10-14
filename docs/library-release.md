@@ -46,6 +46,9 @@ pnpm.cmd library:finalize
 原 `public/books/` 二进制文件已删除；检查结果后提交这些删除和生成的清单，Pages
 部署包才会真正移除小说文件。
 
+`src/data/books.ts` 中的 `networkBooks` 是独立的网络直链，不会进入 Release 清单，
+也不会被准备或上传脚本下载。更新这类条目时只需提交代码配置。
+
 ## 后续增加或修改书籍
 
 迁移完成后，把新增文件放到 `.library-source/` 中对应的目录，然后重新运行：

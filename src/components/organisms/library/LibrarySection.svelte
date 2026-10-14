@@ -4,11 +4,13 @@ import { onMount } from "svelte";
 import type {
 	Book,
 	BookFormat,
+	BookSource,
 	LibraryCopy,
 	LibraryFolder,
 	LibraryStats,
 	ReadingStatus,
 } from "../../../data/books";
+import { groupBooksBySeries } from "../../../utils/library-series";
 
 type SortMode = "added-desc" | "title-asc" | "rating-desc";
 
@@ -27,6 +29,7 @@ let {
 let query = $state("");
 let folderPath = $state("");
 let category = $state("");
+let source = $state<"" | BookSource>("");
 let format = $state<"" | BookFormat>("");
 let readingStatus = $state<"" | ReadingStatus>("");
 let sort = $state<SortMode>("added-desc");
@@ -37,6 +40,7 @@ const categories = $derived(
 		a.localeCompare(b, "zh-CN"),
 	),
 );
+const hasNetworkBooks = $derived(books.some((book) => book.source === "network"));
 
 const currentFolder = $derived(folders.find((folder) => folder.path === folderPath));
 const folderSegments = $derived(folderPath ? folderPath.split("/") : []);
@@ -60,12 +64,15 @@ const filteredBooks = $derived.by(() => {
 				!book.folderPath.startsWith(`${folderPath}/`)
 			) return false;
 			if (category && book.category !== category) return false;
+			if (source && book.source !== source) return false;
 			if (format && book.format !== format) return false;
 			if (readingStatus && book.readingStatus !== readingStatus) return false;
 			if (!normalized) return true;
 			return [
 				book.title,
 				book.author,
+				book.series ?? "",
+				book.volume?.toString() ?? "",
 				book.description,
 				book.category,
 				book.folderPath,
@@ -86,15 +93,22 @@ const filteredBooks = $derived.by(() => {
 		});
 });
 
+const groupedBooks = $derived(groupBooksBySeries(filteredBooks));
+
+function formatVolume(volume: number): string {
+	return copy.volumePattern.replace("{volume}", String(volume));
+}
+
 $effect(() => {
 	if (!initialized) return;
 	const params = new URLSearchParams(window.location.search);
-	for (const key of ["q", "folder", "category", "format", "reading", "sort"]) {
+	for (const key of ["q", "folder", "category", "source", "format", "reading", "sort"]) {
 		params.delete(key);
 	}
 	if (query.trim()) params.set("q", query.trim());
 	if (folderPath) params.set("folder", folderPath);
 	if (category) params.set("category", category);
+	if (source) params.set("source", source);
 	if (format) params.set("format", format.toLowerCase());
 	if (readingStatus) params.set("reading", readingStatus);
 	if (sort !== "added-desc") params.set("sort", sort);
@@ -110,6 +124,12 @@ onMount(() => {
 		? requestedFolder
 		: "";
 	category = params.get("category") ?? "";
+	const requestedSource = params.get("source");
+	source =
+		(requestedSource === "local" || requestedSource === "network") &&
+		books.some((book) => book.source === requestedSource)
+			? requestedSource
+			: "";
 	const requestedFormat = params.get("format")?.toUpperCase();
 	format = requestedFormat === "TXT" || requestedFormat === "EPUB" ? requestedFormat : "";
 	const requestedReading = params.get("reading");
@@ -211,6 +231,16 @@ onMount(() => {
 						{#each categories as item}<option value={item}>{item}</option>{/each}
 					</select>
 				</label>
+				{#if hasNetworkBooks}
+					<label>
+						<span>{copy.source}</span>
+						<select bind:value={source}>
+							<option value="">{copy.allSources}</option>
+							<option value="local">{copy.localSource}</option>
+							<option value="network">{copy.networkSource}</option>
+						</select>
+					</label>
+				{/if}
 				<label>
 					<span>{copy.format}</span>
 					<select bind:value={format}>
@@ -241,53 +271,82 @@ onMount(() => {
 	{/if}
 
 	{#if filteredBooks.length > 0}
-		<div class="library__grid" aria-live="polite">
-			{#each filteredBooks as book (book.id)}
-				<article class="book-card">
-					<a class="book-card__cover" href={book.detailUrl} aria-label={`${copy.details}：${book.title}`}>
-						{#if book.coverUrl}
-							<img src={book.coverUrl} alt={`${book.title}${copy.coverSuffix}`} loading="lazy" decoding="async" />
-						{:else}
-							<div class="book-card__fallback">
-								<Icon icon="material-symbols:menu-book-outline-rounded" aria-hidden="true" />
-								<strong>{book.title}</strong>
-								<span>{copy.noCover}</span>
-							</div>
-						{/if}
-					</a>
-
-					<div class="book-card__body">
-						<div class="book-card__heading">
-							<div>
-								<h2><a href={book.detailUrl}>{book.title}</a></h2>
-								<p>{book.author}</p>
-							</div>
-							<span class="book-card__format">{book.format}</span>
+		<div class="library__groups" aria-live="polite">
+			{#each groupedBooks as group, groupIndex (group.key)}
+				<details
+					class="series-group"
+					open={!group.series || query.trim().length > 0}
+				>
+					<summary class="series-group__header">
+						<div>
+							<Icon
+								icon={group.series
+									? "material-symbols:book-2-outline-rounded"
+									: "material-symbols:menu-book-outline-rounded"}
+								aria-hidden="true"
+							/>
+							<h2 id={`library-group-${groupIndex}`}>{group.series ?? copy.standalone}</h2>
 						</div>
+						<span class="series-group__count">
+							{group.books.length} {copy.countSuffix}
+							<Icon icon="material-symbols:expand-more-rounded" aria-hidden="true" />
+						</span>
+					</summary>
 
-						<div class="book-card__metadata" aria-label={copy.metadataLabel}>
-							<span>{book.category}</span>
-							<span title={book.folderPath}>{book.folderSegments.at(-1) ?? copy.rootFolder}</span>
-							<span>{copy.statusLabels[book.status]}</span>
-							<span>{copy.readingStatusLabels[book.readingStatus]}</span>
-							<span>{book.fileSizeLabel}</span>
-							{#if book.rating !== undefined}<span>{book.rating}/5</span>{/if}
-						</div>
-						{#if book.tags.length > 0}
-							<div class="book-card__tags">
-								{#each book.tags as tag}<span>#{tag}</span>{/each}
-							</div>
-						{/if}
+					<div class="series-group__books">
+						{#each group.books as book (book.id)}
+							<article class="book-card">
+								<a class="book-card__cover" href={book.detailUrl} aria-label={`${copy.details}：${book.title}`}>
+									{#if book.coverUrl}
+										<img src={book.coverUrl} alt={`${book.title}${copy.coverSuffix}`} loading="lazy" decoding="async" />
+									{:else}
+										<div class="book-card__fallback">
+											<Icon icon="material-symbols:menu-book-outline-rounded" aria-hidden="true" />
+											<strong>{book.title}</strong>
+											<span>{copy.noCover}</span>
+										</div>
+									{/if}
+								</a>
 
-						<div class="book-card__actions">
-							<a class="book-card__details" href={book.detailUrl}>{copy.details}</a>
-							<a class="book-card__download" href={book.fileUrl} download>
-								<Icon icon="material-symbols:download-rounded" aria-hidden="true" />
-								{copy.download} {book.format}
-							</a>
-						</div>
+								<div class="book-card__body">
+									<div class="book-card__heading">
+										<div>
+											<h3><a href={book.detailUrl}>{book.title}</a></h3>
+											<p>{book.author}</p>
+										</div>
+										<span class="book-card__format">{book.format}</span>
+									</div>
+
+									<div class="book-card__metadata" aria-label={copy.metadataLabel}>
+										{#if book.volume !== undefined}<span>{formatVolume(book.volume)}</span>{/if}
+										{#if book.source === "network"}<span>{copy.networkSource}</span>{/if}
+										<span>{book.category}</span>
+										{#if book.source === "local"}
+											<span title={book.folderPath}>{book.folderSegments.at(-1) ?? copy.rootFolder}</span>
+										{/if}
+										<span>{copy.statusLabels[book.status]}</span>
+										<span>{copy.readingStatusLabels[book.readingStatus]}</span>
+										{#if book.fileSizeLabel}<span>{book.fileSizeLabel}</span>{/if}
+										{#if book.rating !== undefined}<span>{book.rating}/5</span>{/if}
+									</div>
+									{#if book.tags.length > 0}
+										<div class="book-card__tags">
+											{#each book.tags as tag}<span>#{tag}</span>{/each}
+										</div>
+									{/if}
+
+									<div class="book-card__actions">
+										<a class="book-card__details" href={book.detailUrl}>{copy.details}</a>
+										<a class="book-card__download" href={book.fileUrl} download>
+											<Icon icon="material-symbols:download-rounded" aria-hidden="true" />
+											{copy.download} {book.format}
+										</a>
+									</div>
+								</div>
+							</article>
+						{/each}
 					</div>
-				</article>
+				</details>
 			{/each}
 		</div>
 	{:else}
@@ -493,7 +552,7 @@ onMount(() => {
 
 	&__filters
 		display: grid
-		grid-template-columns: repeat(4, minmax(0, 1fr))
+		grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr))
 		gap: var(--m3e-space-3)
 
 		label
@@ -512,10 +571,9 @@ onMount(() => {
 			color: var(--on-surface)
 			font: var(--m3e-type-body-medium)
 
-	&__grid
+	&__groups
 		display: grid
-		grid-template-columns: minmax(0, 1fr)
-		gap: var(--m3e-space-4)
+		gap: var(--m3e-space-5)
 		padding-top: var(--m3e-space-5)
 
 	&__empty
@@ -529,6 +587,70 @@ onMount(() => {
 		> :global(svg)
 			width: 2rem
 			height: 2rem
+
+.series-group
+	display: grid
+	gap: var(--m3e-space-3)
+	padding: var(--m3e-space-4)
+	border-radius: var(--shape-corner-l)
+	background: var(--surface-container)
+
+	&__header
+		display: flex
+		align-items: center
+		justify-content: space-between
+		gap: var(--m3e-space-3)
+		list-style: none
+		cursor: pointer
+
+		&::-webkit-details-marker
+			display: none
+
+		> div
+			display: flex
+			align-items: center
+			min-width: 0
+			gap: var(--m3e-space-2)
+
+			> :global(svg)
+				flex: 0 0 auto
+				width: 1.5rem
+				height: 1.5rem
+				color: var(--primary)
+
+		h2
+			margin: 0
+			font: var(--m3e-type-title-large)
+			font-weight: 700
+			overflow-wrap: anywhere
+
+	&__count
+		display: inline-flex
+		align-items: center
+		gap: var(--m3e-space-1)
+		flex: 0 0 auto
+		padding: var(--m3e-space-1) var(--m3e-space-3)
+		border-radius: var(--shape-corner-full)
+		background: var(--secondary-container)
+		color: var(--on-secondary-container)
+		font: var(--m3e-type-label-medium)
+
+		> :global(svg)
+			flex: 0 0 auto
+			width: 1.25rem
+			height: 1.25rem
+			transition: transform var(--m3e-duration-medium) var(--m3e-easing-standard)
+
+	&[open] &__count > :global(svg)
+		transform: rotate(180deg)
+
+	&__books
+		display: grid
+		grid-template-columns: minmax(0, 1fr)
+		gap: var(--m3e-space-3)
+
+.series-group:not([open]) > .series-group__books
+	display: none
 
 .book-card
 	display: grid
@@ -592,7 +714,7 @@ onMount(() => {
 		justify-content: space-between
 		gap: var(--m3e-space-3)
 
-		h2
+		h3
 			margin: 0
 			font: var(--m3e-type-title-large)
 			font-weight: 700
@@ -670,8 +792,14 @@ onMount(() => {
 :global(html.motion-reduced) .book-card
 	transition: none
 
+:global(html.motion-reduced) .series-group__count > :global(svg)
+	transition: none
+
 @media (prefers-reduced-motion: reduce)
 	.book-card
+		transition: none
+
+	.series-group__count > :global(svg)
 		transition: none
 
 @media (max-width: 56rem)
@@ -696,6 +824,13 @@ onMount(() => {
 		&__stats,
 		&__filters
 			grid-template-columns: repeat(2, minmax(0, 1fr))
+
+	.series-group
+		padding: var(--m3e-space-3)
+
+		&__header
+			align-items: flex-start
+			flex-direction: column
 
 	.book-card
 		grid-template-columns: 7rem minmax(0, 1fr)

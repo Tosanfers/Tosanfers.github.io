@@ -97,7 +97,7 @@ const sourceRoot = path.resolve(
 );
 process.env.LIBRARY_BOOKS_ROOT = sourceRoot;
 const { resolveBooks } = await import(`../src/utils/library.ts?prepare=${Date.now()}`);
-const books = resolveBooks();
+const books = resolveBooks({ includeNetwork: false });
 
 if (books.length === 0) {
 	throw new Error(`No local TXT or EPUB files were found under ${sourceRoot}`);
@@ -111,6 +111,9 @@ fs.mkdirSync(ASSETS_ROOT, { recursive: true });
 
 const entries = [];
 for (const [index, book] of books.entries()) {
+	if (book.fileSize === undefined) {
+		throw new Error(`Local book size is missing: ${book.title}`);
+	}
 	const publicFile = decodeURIComponent(book.fileUrl);
 	const source = path.join(sourceRoot, ...publicFile.slice("/books/".length).split("/"));
 	const extension = path.extname(source).toLowerCase();
